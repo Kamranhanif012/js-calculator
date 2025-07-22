@@ -12,3 +12,8 @@ function addToDisplay(value){
 function toCalculate(){
         display.value= eval(display.value)
 }
+
+
+
+
+
