@@ -69,12 +69,12 @@ body{
     margin: 10px;
     cursor: pointer;
     float: left;
+    transition: 0.3s;
 }
 .btn-group button:hover{
-    background-color: var(--primary-color);
-    color: var(--btn-background-color);
+     background-color: var(--primary-color);
+     color: var(--btn-background-color);
 }
-
 .btn-group .clr-btn{
     background-color: var(--secondary-color);
 }
