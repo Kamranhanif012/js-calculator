@@ -29,7 +29,7 @@ function evaluate(){
     if (display.value==0){
     display.value="can't do :)"  //condition for not solving 0
 }
-    display.value = Function(`return ${display.value}`)(); // evalution function
+    display.value = eval(display.value) // evalution function
  
 }
 
