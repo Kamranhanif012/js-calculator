@@ -11,16 +11,24 @@
 
 
 body{
+     height: 100vh;  
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: var(--body-color);
+    justify-content: center;  
+    background-image: linear-gradient(to bottom right,  rgb(25, 250, 220), rgb(120, 255, 110)); 
 }
 
 .cal-body{
     background-color: var(--background-color);
     border-radius: 20px;
-    width: 20%;
+    width: 300px;
+    height: 400px;
+    transition: 0.5s;
+}
+
+.cal-body:hover{
+        width: 330px;
+        height: 430px;
 }
 
 .input-cont{
@@ -61,22 +69,34 @@ body{
     margin: 10px;
     cursor: pointer;
     float: left;
+    transition: 0.3s;
 }
 .btn-group button:hover{
-    background-color: var(--primary-color);
-    color: var(--btn-background-color);
+     background-color: var(--primary-color);
+     color: var(--btn-background-color);
 }
-
-.btn-group .btn-bg-color{
+.btn-group .clr-btn{
     background-color: var(--secondary-color);
 }
 
-.btn-group .btn-color{
+.btn-group .op-btn{
     color: var(--extra-color);
     background-color: var(--body-color);
 }
 
-.btn-group .btn-normal{
+.btn-group .op-btn:hover{
+      background-color: var(--extra-color);
+}
+
+.btn-group .num-btn{
     background-color: var(--body-color);
+}
+.btn-group .funct-btn{
+    background-color: var(--secondary-color);
+}
+
+.btn-group .funct-btn:hover{
+     background-color: var(--extra-color);
+
 }
 
