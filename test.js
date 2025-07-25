@@ -31,12 +31,16 @@ opaction.forEach( function(button){
     button.addEventListener('click' , opact )  //loop to loop over all buttons and assign them an eventlistener or execute a function defined here
 })
 
+let invalue=''
 
 function opact(event){
             const value= event.target.innerHTML;// go to the target button reads it html content and place it in value variable to display it in input
-            invalue=`${display.value} ${value}`
+            if (display.value !== '') {
+        invalue += `${display.value} ${value} `;
+            }
+            console.log(invalue)
             addToDisplay(value)
-            addToDisplay(display.value='')
+            display.value=''
 
             
 }
@@ -49,6 +53,7 @@ evaluation.addEventListener('click' , evaluate ) //add eventlistener
 
 function evaluate(){
     display.value= math.evaluate(`${invalue} ${display.value}`); // evalution function
+    invalue=''
 }
 
 
