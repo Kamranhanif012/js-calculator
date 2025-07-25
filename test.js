@@ -3,8 +3,12 @@ const display= document.getElementById("input") //selects input element
 
 
 function addToDisplay(value){
-    display.value += value
+   const invalue= display.value += value
 }
+
+
+
+
 
 //numbers
 const action= document.querySelectorAll("#num-btn") //selects all buttons except = and C
@@ -14,9 +18,27 @@ action.forEach( function(btn){
 })
 
 
-function number(){
+function number(event){
             const value= event.target.innerHTML; // go to the target button reads it html content and place it in value variable to display it in input
             addToDisplay(value)
+}
+
+//operators
+
+const opaction= document.querySelectorAll("#op-btn") //selects all buttons except = and C
+
+opaction.forEach( function(button){
+    button.addEventListener('click' , opact )  //loop to loop over all buttons and assign them an eventlistener or execute a function defined here
+})
+
+
+function opact(event){
+            const value= event.target.innerHTML;// go to the target button reads it html content and place it in value variable to display it in input
+            invalue=`${display.value} ${value}`
+            addToDisplay(value)
+            addToDisplay(display.value='')
+
+            
 }
 
 //evaluation
@@ -26,11 +48,7 @@ const evaluation = document.getElementById("eval-btn") // selects
 evaluation.addEventListener('click' , evaluate ) //add eventlistener
 
 function evaluate(){
-    if (display.value==0){
-    display.value="can't do :)"  //condition for not solving 0
-}
-    display.value = eval(display.value) // evalution function
- 
+    display.value= math.evaluate(`${invalue} ${display.value}`); // evalution function
 }
 
 
@@ -41,4 +59,39 @@ clear.addEventListener('click', clearscreen); //adds eventlistener
 
 function clearscreen(){
     display.value=''  // clears the input
+}
+
+// zero restriction
+
+const zero = document.getElementById("zero-btn")
+
+zero.addEventListener('click' , addzero)
+
+function addzero(value){
+   if(display.value=='null' || display.value==''){
+    addToDisplay('')
+   }
+   else{
+    const value= event.target.innerHTML;
+    addToDisplay(value)
+   }
+}
+
+// braces
+
+const braces = document.getElementById("braces-btn")
+
+braces.addEventListener('click' , toggleParenthesis )
+
+let openCount = 0;
+let closeCount = 0;
+
+function toggleParenthesis() {
+    if (openCount === closeCount || display.value.slice(-1) === '(') {
+        display.value += '(';
+        openCount++;
+    } else if (openCount > closeCount) {
+        display.value += ')';
+        closeCount++;
+    }
 }

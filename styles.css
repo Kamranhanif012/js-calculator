@@ -37,6 +37,7 @@ body{
 }
 
 .input-cont input{
+    all: unset;
     padding: 0;
     border: none;
     outline: none;
